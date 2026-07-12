@@ -1,0 +1,69 @@
+   <style>
+        body { font-family: 'Open Sans', sans-serif; background-color: #f0f4f8; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
+        
+        .step-module {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .step-module.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        #moduleContainer { transition: filter 0.4s ease, opacity 0.4s ease; }
+
+        .animate-ekg {
+            stroke-dasharray: 1200;
+            stroke-dashoffset: 1200;
+            animation: drawEkg 0.9s ease-in-out forwards;
+        }
+        @keyframes drawEkg {
+            0% { stroke-dashoffset: 1200; }
+            100% { stroke-dashoffset: 0; }
+        }
+
+        .radio-card input[type="radio"], .checkbox-card input[type="checkbox"] { display: none; }
+        .radio-card input[type="radio"]:checked + div, .checkbox-card input[type="checkbox"]:checked + div {
+            border-color: #004C93;
+            background-color: #f0f7ff;
+            box-shadow: 0 4px 6px -1px rgba(0, 76, 147, 0.2);
+        }
+        .radio-card input[type="radio"]:checked + div .check-icon, .checkbox-card input[type="checkbox"]:checked + div .check-icon {
+            opacity: 1; transform: scale(1);
+        }
+
+        /* Tooltip stílus */
+        .tooltip-icon:hover + .tooltip-content { display: block; }
+        
+        /* Egyedi Csúszka Dizájn Szintekkel */
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; position: relative; z-index: 10;}
+        input[type=range]:focus { outline: none; }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none; height: 26px; width: 26px; border-radius: 50%;
+            background: #004C93; cursor: pointer; margin-top: -10px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3); border: 3px solid #fff;
+            transition: transform 0.1s;
+        }
+        input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.15); background: #00ADEF; }
+        input[type=range]::-webkit-slider-runnable-track { 
+            width: 100%; height: 6px; cursor: pointer; background: #cbd5e1; border-radius: 3px; 
+        }
+        
+        /* Csúszka feliratok igazítása */
+        .range-labels {
+            display: flex; justify-content: space-between; position: relative; top: -10px; z-index: 1; padding: 0 10px;
+        }
+        .range-labels span {
+            width: 1px; height: 8px; background: #94a3b8; display: flex; justify-content: center;
+        }
+        .range-labels span::after {
+            content: attr(data-label); position: absolute; top: 15px; font-size: 0.7rem; font-weight: 600; color: #64748b; text-align: center; width: 80px;
+        }
+		
+		#productModal { background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); }
+		#productModal.active { display: flex; }
+
+    </style>
